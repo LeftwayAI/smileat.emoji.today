@@ -60,7 +60,7 @@ export function Navbar() {
         <Link href="/" className="opacity-80 hover:opacity-100 transition-opacity">
           <Image
             src="/images/logo-white.svg"
-            alt="emoji.today"
+            alt="☺︎.emoji.today"
             width={48}
             height={48}
             className="w-[28px] h-[28px] sm:w-[48px] sm:h-[48px]"
@@ -81,7 +81,7 @@ export function Navbar() {
           <Link href="/" className="flex items-center gap-1.5">
             <Image
               src="/images/logo-white.svg"
-              alt="emoji.today"
+              alt="☺︎.emoji.today"
               width={24}
               height={24}
               className="w-[24px] h-[24px] sm:w-[48px] sm:h-[48px]"

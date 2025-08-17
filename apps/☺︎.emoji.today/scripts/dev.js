@@ -68,7 +68,7 @@ const EMOJI_LOGO_1 = `
 
 `
 
-// ASCII art for emoji.today logo
+// ASCII art for ☺︎.emoji.today logo
 const EMOJI_LOGO = `
                                             :@@@@@@@@@@-                                            
                                     %@@@@@@@@@@@@@@@@@@@@@@@@@@%                                    
@@ -245,7 +245,7 @@ async function startDev() {
       tunnel = null // Set tunnel to null so cleanup doesn't try to close it
     }
     //     console.log(`
-    // 🚀 Starting emoji.today in development mode...
+    // 🚀 Starting ☺︎.emoji.today in development mode...
 
     // 📱 Quick start instructions:
     //    1. Copy your IP address (below)
@@ -267,7 +267,7 @@ async function startDev() {
     //   "💡 To enable tunneling for Farcaster testing, add USE_TUNNEL=true to your .env.local"
     // )
     frameUrl = "http://localhost:3000"
-    console.log(`☻ emoji.today is running locally: http://localhost:3000
+    console.log(`☻ ☺︎.emoji.today is running locally: http://localhost:3000
 
 (enable USE_TUNNEL=true to test in Farcaster)`)
   }
@@ -290,7 +290,7 @@ async function startDev() {
     setTimeout(() => {
       console.log(`
                 ══════════════════════════════════════════════════════════════════════════════
-                                      ☻ emoji.today is running locally
+                                      ☻ ☺︎.emoji.today is running locally
 
                                 ${ip}    //    ${tunnel.url}
 

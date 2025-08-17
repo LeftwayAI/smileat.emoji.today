@@ -7,24 +7,24 @@ import { getSession } from "@/auth";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "emoji.today",
-  description: "emoji.today",
+  title: "☺︎.emoji.today",
+  description: "☺︎.emoji.today",
   openGraph: {
-    images: "https://emoji.today/og.png",
+    images: "https://☺︎.emoji.today/og.png",
   },
   twitter: {
     card: "summary_large_image",
-    site: "emoji.today",
-    description: `emoji.today`,
-    title: `emoji.today`,
-    images: ["https://emoji.today/og.png"],
+    site: "☺︎.emoji.today",
+    description: `☺︎.emoji.today`,
+    title: `☺︎.emoji.today`,
+    images: ["https://☺︎.emoji.today/og.png"],
   },
   other: {
     "fc:frame": JSON.stringify({
       version: "next",
       imageUrl: process.env.NEXT_PUBLIC_APP_HERO_IMAGE,
       button: {
-        title: `Launch ${process.env.NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME || 'emoji.today'}`,
+        title: `Launch ${process.env.NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME || '☺︎.emoji.today'}`,
         action: {
           type: "launch_frame",
           name: process.env.NEXT_PUBLIC_ONCHAINKIT_PROJECT_NAME || 'emoji.today',

@@ -156,7 +156,7 @@ export function getSecretEnvVars() {
 //     accountAssociation,
 //     frame: {
 //       version: "1",
-//       name: APP_NAME ?? "emoji.today",
+//       name: APP_NAME ?? "☺︎.emoji.today",
 //       iconUrl: APP_ICON_URL,
 //       homeUrl: APP_URL,
 //       imageUrl: APP_OG_IMAGE_URL,

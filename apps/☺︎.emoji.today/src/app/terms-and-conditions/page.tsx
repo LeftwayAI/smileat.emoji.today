@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions - emoji.today",
-  description: "Terms and Conditions for emoji.today",
+  title: "Terms and Conditions - ☺︎.emoji.today",
+  description: "Terms and Conditions for ☺︎.emoji.today",
 };
 
 export default function TermsAndConditions() {
@@ -43,16 +43,16 @@ export default function TermsAndConditions() {
         <div className="prose prose-lg prose-invert max-w-none space-y-8">
           <div className="text-lg leading-relaxed space-y-6">
             <p>
-              These Terms and Conditions (the <strong>"Terms"</strong>) govern your access to and use of <strong>emoji.today</strong>,
+              These Terms and Conditions (the <strong>"Terms"</strong>) govern your access to and use of <strong>☺︎.emoji.today</strong>,
               a global emoji-voting experience operated by The Company (<strong>"The Company,"</strong> <strong>"we,"</strong> <strong>"us,"</strong> or <strong>"our"</strong>).
-              By accessing or participating in emoji.today, you agree to be bound by these Terms. If you do not agree, do not use emoji.today.
+              By accessing or participating in ☺︎.emoji.today, you agree to be bound by these Terms. If you do not agree, do not use ☺︎.emoji.today.
             </p>
           </div>
 
           <section>
             <h2 className="text-2xl font-semibold mb-4 text-white">1. Acceptance of Terms</h2>
             <div className="space-y-4">
-              <p>Signing in to emoji.today constitutes your full acceptance of these Terms and any additional rules or guidelines we post (collectively, the <strong>"Rules"</strong>).</p>
+              <p>Signing in to ☺︎.emoji.today constitutes your full acceptance of these Terms and any additional rules or guidelines we post (collectively, the <strong>"Rules"</strong>).</p>
               <p>Participation is voluntary; you may stop at any time.</p>
             </div>
           </section>
@@ -60,14 +60,14 @@ export default function TermsAndConditions() {
           <section>
             <h2 className="text-2xl font-semibold mb-4 text-white">2. Eligibility (Age & Account)</h2>
             <div className="space-y-4">
-              <p><strong>Age Restriction:</strong> emoji.today is available only to individuals 18 years of age or older.</p>
-              <p><strong>Farcaster Account:</strong> A valid Farcaster account is required for authentication. You are responsible for keeping your Farcaster credentials secure. All activity from your Farcaster account on emoji.today is deemed to be yours.</p>
+              <p><strong>Age Restriction:</strong> ☺︎.emoji.today is available only to individuals 18 years of age or older.</p>
+              <p><strong>Farcaster Account:</strong> A valid Farcaster account is required for authentication. You are responsible for keeping your Farcaster credentials secure. All activity from your Farcaster account on ☺︎.emoji.today is deemed to be yours.</p>
               <p><strong>One Account Per Person:</strong> Creating or controlling multiple Farcaster IDs to evade the one-vote-per-day rule is prohibited; we may disqualify votes or terminate participation for suspected abuse.</p>
             </div>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4 text-white">3. How emoji.today Works</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-white">3. How ☺︎.emoji.today Works</h2>
             <div className="space-y-4">
               <p><strong>Voting Window:</strong> 00:00 UTC – 23:59 UTC each day.</p>
               <p><strong>One Irrevocable Vote:</strong> You may cast one (1) vote per day, and it cannot be changed once submitted.</p>
@@ -109,7 +109,7 @@ export default function TermsAndConditions() {
             <h2 className="text-2xl font-semibold mb-4 text-white">7. Privacy & Data Protection</h2>
             <div className="space-y-4">
               <p><strong>Data We Collect:</strong> Farcaster ID, your vote, wallet address for NFT delivery, and minimal usage analytics.</p>
-              <p><strong>No Unnecessary Data:</strong> We collect nothing beyond what is required to operate emoji.today.</p>
+              <p><strong>No Unnecessary Data:</strong> We collect nothing beyond what is required to operate ☺︎.emoji.today.</p>
               <p><strong>Compliance:</strong> We adhere to GDPR, CCPA, and other applicable privacy laws.</p>
               <p><strong>Public Record:</strong> Votes and on-chain data are inherently public and cannot be erased. Non-public personal data (e.g., payment details) is handled by trusted third-party processors and kept confidential.</p>
             </div>
@@ -128,7 +128,7 @@ export default function TermsAndConditions() {
           <section>
             <h2 className="text-2xl font-semibold mb-4 text-white">9. Disclaimers & Limitation of Liability</h2>
             <div className="space-y-4">
-              <p><strong>emoji.today is provided "as is" and "as available."</strong></p>
+              <p><strong>☺︎.emoji.today is provided "as is" and "as available."</strong></p>
               <p><strong>No Warranties:</strong> The Company disclaims all warranties, express or implied.</p>
               <p><strong>No Guarantee of Value:</strong> We do not guarantee any particular value or utility of NFTs.</p>
               <p><strong>Maximum Liability:</strong> The Company's aggregate liability is capped at the greater of (a) the amounts you paid us in the past 12 months or (b) CAD $100, except where prohibited by law.</p>
@@ -139,7 +139,7 @@ export default function TermsAndConditions() {
           <section>
             <h2 className="text-2xl font-semibold mb-4 text-white">10. User Consents</h2>
             <div className="space-y-4">
-              <p>By participating in emoji.today you expressly consent to:</p>
+              <p>By participating in ☺︎.emoji.today you expressly consent to:</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li><strong>Public Display of Your Votes.</strong></li>
                 <li><strong>Immediate, Non-Refundable Delivery of Digital Goods.</strong></li>
@@ -151,7 +151,7 @@ export default function TermsAndConditions() {
           <section>
             <h2 className="text-2xl font-semibold mb-4 text-white">11. Changes to These Terms</h2>
             <div className="space-y-4">
-              <p><strong>Notice:</strong> Material changes will be announced via emoji.today, email, or Farcaster and will take effect on the stated date.</p>
+              <p><strong>Notice:</strong> Material changes will be announced via ☺︎.emoji.today, email, or Farcaster and will take effect on the stated date.</p>
               <p><strong>Acceptance:</strong> Continued use after the effective date signifies acceptance.</p>
               <p><strong>Minor Updates:</strong> Non-material edits may take effect immediately upon posting.</p>
             </div>
@@ -171,7 +171,7 @@ export default function TermsAndConditions() {
             <div className="space-y-4">
               <p><strong>Severability:</strong> If any provision is unenforceable, the remainder stays in force.</p>
               <p><strong>No Waiver:</strong> Our failure to enforce any term is not a waiver.</p>
-              <p><strong>Entire Agreement:</strong> These Terms (plus any Rules + Privacy Policy) are the entire agreement between you and The Company regarding emoji.today.</p>
+              <p><strong>Entire Agreement:</strong> These Terms (plus any Rules + Privacy Policy) are the entire agreement between you and The Company regarding ☺︎.emoji.today.</p>
               <p><strong>Assignment:</strong> You may not transfer your rights; we may assign ours in connection with corporate changes.</p>
               <p><strong>Headings:</strong> Headings are for convenience only.</p>
               <p><strong>Survival:</strong> Sections that by their nature should survive termination do so.</p>
@@ -182,7 +182,7 @@ export default function TermsAndConditions() {
             <h2 className="text-2xl font-semibold mb-4 text-white">14. Contact Us</h2>
             <div className="space-y-4">
               <p>
-                <strong>Email:</strong> <a href="mailto:hello@emoji.today" className="text-orange-500 hover:underline">hello@emoji.today</a>
+                <strong>Email:</strong> <a href="mailto:hello@☺︎.emoji.today" className="text-orange-500 hover:underline">hello@☺︎.emoji.today</a>
               </p>
               <p>
                 <strong>Farcaster:</strong> <a href="https://farcaster.xyz/emojitoday" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:underline">@emojitoday</a>
@@ -195,7 +195,7 @@ export default function TermsAndConditions() {
 
           <div className="mt-12 pt-8 border-t border-neutral-700 text-center">
             <p className="text-lg text-neutral-300">
-              By signing in to emoji.today, you confirm you have read, understood, and accept these Terms.
+              By signing in to ☺︎.emoji.today, you confirm you have read, understood, and accept these Terms.
             </p>
           </div>
         </div>

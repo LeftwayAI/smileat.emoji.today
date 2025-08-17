@@ -20,7 +20,7 @@ export const APP_WEBHOOK_URL =
 export const APP_SUBTITLE = "What emoji is today?"
 export const APP_HERO_IMAGE_URL = `${APP_URL}/og.png`
 export const APP_TAGLINE = "Vote for today's emoji"
-export const APP_OG_TITLE = "emoji.today"
+export const APP_OG_TITLE = "☺︎.emoji.today"
 export const APP_OG_DESCRIPTION = "What emoji is today?"
 export const APP_OG_IMAGE_URL_FINAL = `${APP_URL}/og.png`
 

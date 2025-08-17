@@ -162,7 +162,7 @@ export default function SimpleHomePage() {
           <div className="mb-8 p-4 bg-neutral-900 rounded-lg">
             <p className="text-sm text-neutral-400 mb-2">Signed in as:</p>
             <p className="text-lg font-mono">
-              {context?.user?.username || unifiedUser.username || session?.user?.name || 'User'}
+              {context?.user?.username || unifiedUser.username || 'User'}
             </p>
             {(context?.user?.fid || unifiedUser.fid || session?.user?.fid) && (
               <p className="text-sm text-neutral-500 mt-1">

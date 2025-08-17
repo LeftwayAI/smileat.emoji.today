@@ -14,6 +14,7 @@ const projectRoot = path.resolve(path.normalize(path.join(__dirname, "..")))
 let tunnel
 let nextDev
 let isCleaningUp = false
+let cloudflareProc = null
 
 const EMOJI_LOGO_1 = `
                                                                                                     
@@ -219,30 +220,95 @@ async function startDev() {
 
   if (useTunnel) {
     console.log("🔗 Attempting to create tunnel...")
-    try {
-      // Start localtunnel and get URL
-      tunnel = await localtunnel({ port: 3000 })
-      
-      try {
-        ip = await fetch("https://ipv4.icanhazip.com")
-          .then((res) => res.text())
-          .then((ip) => ip.trim())
-      } catch (error) {
-        console.error("Error getting IP address:", error)
-      }
 
-      frameUrl = tunnel.url
-      console.log("✅ Tunnel established successfully!")
+    // Helper: Start Cloudflare Tunnel and resolve the public trycloudflare URL
+    const startCloudflareTunnel = (port) => {
+      return new Promise((resolve, reject) => {
+        let resolved = false
+
+        try {
+          const cf = spawn("cloudflared", [
+            "tunnel",
+            "--url",
+            `http://127.0.0.1:${port}`,
+            "--no-autoupdate",
+          ])
+          cloudflareProc = cf
+
+          const handleData = (chunk) => {
+            const text = chunk.toString()
+            const match = text.match(
+              /https?:\/\/[^\s]*trycloudflare\.com[^\s]*/i
+            )
+            if (match && !resolved) {
+              resolved = true
+              resolve({ url: match[0], proc: cf })
+            }
+          }
+
+          cf.stdout.on("data", handleData)
+          cf.stderr.on("data", handleData)
+          cf.on("error", (err) => {
+            if (!resolved) reject(err)
+          })
+          cf.on("exit", (code) => {
+            if (!resolved)
+              reject(new Error(`cloudflared exited with code ${code}`))
+          })
+
+          // Timeout if we don't see a URL soon
+          setTimeout(() => {
+            if (!resolved)
+              reject(new Error("Timed out waiting for Cloudflare tunnel URL"))
+          }, 15000)
+        } catch (err) {
+          reject(err)
+        }
+      })
+    }
+
+    // Prefer Cloudflare, fallback to LocalTunnel if unavailable
+    let usedProvider = "cloudflare"
+    try {
+      const { url } = await startCloudflareTunnel(3000)
+      frameUrl = url
+      console.log(`✅ Cloudflare tunnel established: ${frameUrl}`)
+    } catch (cfErr) {
+      usedProvider = "localtunnel"
+      console.log(
+        "⚠️  Cloudflare tunnel unavailable, falling back to LocalTunnel…",
+        cfErr?.message || cfErr
+      )
+      try {
+        tunnel = await localtunnel({ port: 3000 })
+        frameUrl = tunnel.url
+        console.log("✅ LocalTunnel established successfully!")
+      } catch (ltErr) {
+        console.error(
+          "\n⚠️  Could not establish any tunnel (likely due to network restrictions)"
+        )
+        console.error(
+          "   This is common on conference/corporate WiFi that blocks tunneling services.\n"
+        )
+        console.log("🔄 Alternative options:")
+        console.log(
+          "   1. Install Cloudflare Tunnel: brew install cloudflare/cloudflare/cloudflared && rerun"
+        )
+        console.log("   2. Use your phone's hotspot instead of conference WiFi")
+        console.log("   3. Deploy to Vercel for testing: vercel --prod\n")
+        console.log(
+          "📱 Continuing with local development at http://localhost:3000"
+        )
+        frameUrl = "http://localhost:3000"
+      }
+    }
+
+    try {
+      ip = await fetch("https://ipv4.icanhazip.com")
+        .then((res) => res.text())
+        .then((ip) => ip.trim())
     } catch (error) {
-      console.error("\n⚠️  Could not establish tunnel (likely due to network restrictions)")
-      console.error("   This is common on conference/corporate WiFi that blocks tunneling services.\n")
-      console.log("🔄 Alternative options:")
-      console.log("   1. Use ngrok instead: npm install -g ngrok && ngrok http 3000")
-      console.log("   2. Use your phone's hotspot instead of conference WiFi")
-      console.log("   3. Deploy to Vercel for testing: vercel --prod\n")
-      console.log("📱 Continuing with local development at http://localhost:3000")
-      frameUrl = "http://localhost:3000"
-      tunnel = null // Set tunnel to null so cleanup doesn't try to close it
+      console.error("Error getting IP address:", error)
     }
     //     console.log(`
     // 🚀 Starting ☺︎.emoji.today in development mode...
@@ -285,14 +351,14 @@ async function startDev() {
   })
 
   // Show the important info at the end with visual padding
-  if (useTunnel && ip) {
+  if (useTunnel && ip && frameUrl) {
     // Wait a bit for Next.js to start up
     setTimeout(() => {
       console.log(`
                 ══════════════════════════════════════════════════════════════════════════════
                                       ☻ ☺︎.emoji.today is running locally
 
-                                ${ip}    //    ${tunnel.url}
+                                ${ip}    //    ${frameUrl}
 
                 ══════════════════════════════════════════════════════════════════════════════
 `)
@@ -333,6 +399,15 @@ async function startDev() {
           console.log("🌐 Tunnel closed")
         } catch (e) {
           console.log("Note: Tunnel already closed")
+        }
+      }
+
+      if (cloudflareProc) {
+        try {
+          cloudflareProc.kill("SIGINT")
+          console.log("🌐 Cloudflare tunnel process terminated")
+        } catch (e) {
+          // Ignore errors when killing cloudflare process
         }
       }
 

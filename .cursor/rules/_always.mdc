@@ -1,0 +1,43 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# _always.md
+
+In general, ask for clarification before making changes if you're not totally sure about something I'm asking you to do, or that I want help with.
+
+## about the project (emoji.today)
+
+emoji.today is a daily social voting platform where users vote for the emoji that best represents the day. Think of it as the daily cadence of Nouns, meets the daily community ritual of Wordle, meets the speculative fervor of Polymarket, meets the live lottery vibes of HQ Trivia. The 
+
+## Resources
+
+- **Supabase**:
+  - For database stuff, you have Supabase MCP access. Use it to read from it, and write to it (if you're absolutely sure that's what I want you to do)
+  - you should only ever write to production emoji.today main branch in supabase if you're absolutely certain that's what I want you to do.
+- backlog.mdc
+
+## About this repo
+
+Here's the lay of the land:
+
+- this is a Turborepo monorepo, with a /apps and a /packages directory at root.
+- /apps/emoji.today runs the web app (hosted in Vercel)
+  - This is where I'll spend most of my time and effort for now.
+  - It is a Farcaster mini app.
+- /apps/jobs has a few scheduled tasks that need to run regularly (in Railway)
+- /packages/emoji-assets keeps all emojis in png format
+  - There's /images/apple-80 and /images/apple-160 for 80px and 160px versions relatively. we should use 80 when it won't be too small, for performance, and 160 when it needs to be bigger.
+  - There are some scripts that maintain stuff like a mapping of names for files etc., and can sync stuff to the emojis table in the Supabase database, which is where we store accent color for each emoji, etc.
+- Supabase database for backend
+- `/docs` directory contains `/farcaster-mini-apps`
+  - notes from the Farcaster docs which the `emoji.today` repo is based on (cloned from `mini-app-reference`). Reference these docs where relevant, and also use the Neynar MCP tool.
+
+## How to best work in this repo
+
+- **Always use yarn** for package management (not npm). yarn to install, yarn to run commands. never use npm.
+- **Always use workspace commands** for installing packages instead of jumping around with cd ../.. and the like.
+  - Example: `yarn workspace staging.emoji.today add [package]`
+- **The start command is `yarn emoji` for `emoji.today` to run locally.** assume I'm probably already running it, or tell me to run it, but don't offer up the command
+- Check design.mdc for design notes when you have to make any UI.
